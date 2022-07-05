@@ -1,0 +1,14 @@
+Comandos de web3.js:
+
+Primeiro é essencial entender que a comunicação entre os nós se da por
+JSON, logo, os arquivos recebidos serão dessa forma, assim, usaremos JS 
+para manipulá-los.
+
+Call -> usado para chamar funções pure e view, não gasta gas na Blockchain
+Send -> usado para fazer alterações na Blockchain, logo gasta gas e não é
+usado nem por pure, nem por view.
+
+[CONTRATO].methods.[FUNÇÃO](PARÂMETRO).call()
+[CONTRATO].methods.[FUNÇÃO](PARÂMETRO).send()
+
+Sintaxe é praticamente igual, porém a funcionalidade é totalmente diferente.

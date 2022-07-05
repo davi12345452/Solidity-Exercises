@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CryptoZombies front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+      window.addEventListener('load', function() {
+
+      // Verificando se o Web3 foi injetado pelo navegador (Mist/MetaMask)
+      if (typeof web3 !== 'undefined') {
+        // Use o provedor de Mist/MetaMask
+        web3js = new Web3(web3.currentProvider);
+      } else {
+        // Caso o usuário não tem web3. Provavelmente
+        // mostre a ele uma mensagem dizendo-lhe para instalar o Metamask
+        // afim de usar nosso aplicativo.
+      }
+
+      // Agora você pode iniciar seu aplicativo e acessar o web3js livremente:
+      startApp()
+
+      })
+    </script>
+  </body>
+</html>

@@ -8,3 +8,6 @@ contract ERC721 {
   function approve(address _to, uint256 _tokenId) public;
   function takeOwnership(uint256 _tokenId) public;
 }
+
+
+/* Contrato ERC721 do openzeppellin. */
