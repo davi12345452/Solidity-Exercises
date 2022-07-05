@@ -1,0 +1,5 @@
+Função modificador payable: é uma função atribuída assim como external, in-
+ternal... que serve para que ocorram transações, ou seja, tranferência de
+ether. Somente com essa modificadora explícita em uma função, essa poderá
+fazer transações. Se não estiver marcada com payable, a função terá a ope-
+ração rejeitada.
