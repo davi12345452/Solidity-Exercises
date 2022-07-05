@@ -1,0 +1,24 @@
+Funções modificadoras são funções que são chamadas por modifier
+ao invés do function. Seu papel é na permissão de chamar certas
+funções. Por exemplo, se tivermos um modifier que só chama quem
+criou o contrato e colocarmos ela em uma function normal, pode-
+remos criar funções exclusivas, que só o criador tem acesso, por
+exemplo:
+
+function Ownable() public {
+    owner = msg.sender;
+}
+
+
+modifier onlyOwner() {
+    require(msg.sender == owner);
+    _; //Característica do modifier terminar assim
+}
+
+function Permissão(uint _oi) onlyOwner.... 
+
+A função permissão só poderá ser chamada pelo criador do contrato, quem
+registrou ele na Blockchain. Isso pode ajudar na resolução de problemas
+futuros, já que a Blockchain é imutável, logo, não podemos voltar e al-
+terar erros, mas podemos criar funções que modificam por cima os erros.
+Porém, os modifier podem ser usados para golpes e scans também.
