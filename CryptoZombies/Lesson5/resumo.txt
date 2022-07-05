@@ -1,0 +1,42 @@
+Tokens ERC: há duas maneiras de tokenizar dentro da EVM, através dos Tokens
+ERC20, que são criptos, moedas em si, e os ERC721, que são o colecionáveis,
+ou seja, os Non Fungible Tokens, NFT. Diferente dos ERC20, os tokens ERC721
+são únicos, ou seja, possuem um id único e não podem ser divisíveis.
+
+Overflow e Underflow:
+O que é um overflow (transbordamento) ?
+
+Digamos que você tem um uint8, que pode ter somente 8 bits. Isso significa que o maior número que podemos guardar é o binário 11111111 (ou um decimal, 2^8 - 1 = 255).
+
+De uma olhada no seguinte código. Qual é o number igual no final?
+
+uint8 number = 255;
+number++;
+
+Neste caso, nós causamos um "overflow" – então o number é contraintuitivamente igual a 0 mesmo após nós aumentarmos. (Se você adicionar 1 para um binário 11111111, ele restabelece de volta para 00000000, como um relógio indo de 23:59 para 00:00).
+
+Um "underflow" é parecido, onde se você subtrair 1 de um uint8 que é igual a 0, este agora é igual à 255 (porque uints são sem sinal, e não podem ser negativos).
+
+Enquanto não usamos uint8 aqui, parece improvável que o uint256 irá transbordar quando incrementarmos em 1 toda vez (2^256 é realmente um número grande), ainda é bom colocar proteções em nossos contratos então nossa DApp nunca terá um comportamento indesejável no futuro.
+
+Bibliotecas: são DIFERENTES de contratos herdados, a sintaxe usada para
+chamar é "using BIBLIOTECA for TIPO". Nessa lesson usei a SafeMath, uma
+biblioteca matemática que possui funções matemáticas, como soma...
+
+A declaração de uma biblioteca, se da com library e não contract.
+
+library SafeMath {
+    ...
+}
+
+Chamamos com o using, atribuindo em que essa biblioteca pode ser usada. Por 
+exemplo, chamando using SafeMath for uint256 estaremos trazendo as funções
+dentro da biblioteca para dentro do contrato, sendo que só podemos usar elas
+em elementos do tipo uint256.
+
+Assert: é um comando parecido com require, usado para evitar underflow ou 
+overflow. A sua diferença com o require é que o primeiro, caso falso, não
+gasta gas, já está sim.
+
+SafeMath: biblioteca com comando básicos, add, sub, mul, div que possui
+assert em cada uma para evitar um transbordamento.
